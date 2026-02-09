@@ -74,8 +74,9 @@ body {
 }
 
 .hero h1 {
-    font-size: 6rem;
+    font-size: clamp(3rem, 10vw, 6rem);
     font-weight: 700;
+    line-height: 1.1;
     background: linear-gradient(180deg, #fff 0%, #aaa 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -115,15 +116,15 @@ section {
 }
 
 .section-title {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     text-align: center;
-    margin-bottom: 60px;
+    margin: 0 auto 60px auto;
+    /* Centering with margin */
     border-bottom: 2px solid var(--primary-color);
-    display: inline-block;
+    display: table;
+    /* Acts like inline-block but allows margin auto */
     padding-bottom: 10px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    max-width: 100%;
 }
 
 /* Comparison Grid */
@@ -162,9 +163,17 @@ section {
     font-weight: 700;
 }
 
-.stat .value.accent { color: var(--success-color); }
-.stat .value.danger { color: var(--danger-color); }
-.stat .value.warning-text { color: var(--primary-color); }
+.stat .value.accent {
+    color: var(--success-color);
+}
+
+.stat .value.danger {
+    color: var(--danger-color);
+}
+
+.stat .value.warning-text {
+    color: var(--primary-color);
+}
 
 .growth-arrow {
     text-align: center;
@@ -190,9 +199,21 @@ section {
     border-left: 5px solid var(--primary-color);
 }
 
-.math-block h4 { font-size: 1.5rem; margin-bottom: 15px; }
-.math-block p { font-size: 1.2rem; margin-bottom: 10px; }
-.loss-highlight { color: var(--danger-color); font-weight: 700; font-size: 1.5rem !important; }
+.math-block h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.math-block p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.loss-highlight {
+    color: var(--danger-color);
+    font-weight: 700;
+    font-size: 1.5rem !important;
+}
 
 /* Proof List */
 .proof-list {
@@ -209,7 +230,10 @@ section {
     border-top: 2px solid var(--primary-color);
 }
 
-.proof-item .icon { font-size: 3rem; margin-bottom: 20px; }
+.proof-item .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
 
 /* Features */
 .features-grid {
@@ -225,16 +249,33 @@ section {
     transition: transform 0.3s ease;
 }
 
-.feature-card:hover { transform: translateY(-10px); }
-.feature-icon { font-size: 2.5rem; margin-bottom: 20px; }
-.feature-card h3 { margin-bottom: 20px; color: var(--primary-color); }
-.feature-card ul { padding-left: 20px; }
-.feature-card li { margin-bottom: 10px; color: var(--text-muted); }
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.feature-card ul {
+    padding-left: 20px;
+}
+
+.feature-card li {
+    margin-bottom: 10px;
+    color: var(--text-muted);
+}
 
 /* Investment */
 .investment-box {
     text-align: center;
-    background: linear-gradient(135deg, rgba(20,20,20,0.9) 0%, rgba(40,40,40,0.9) 100%);
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(40, 40, 40, 0.9) 100%);
     padding: 60px;
     border-radius: 20px;
     border: 1px solid var(--primary-color);
@@ -248,13 +289,20 @@ section {
     margin: 20px 0;
 }
 
-.price-tag .currency { font-size: 2rem; vertical-align: super; }
-.price-tag .period { font-size: 1.5rem; color: var(--text-muted); }
+.price-tag .currency {
+    font-size: 2rem;
+    vertical-align: super;
+}
+
+.price-tag .period {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+}
 
 .roi-projection {
     margin-top: 50px;
     text-align: left;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     padding: 30px;
     border-radius: 10px;
 }
@@ -272,12 +320,21 @@ section {
     align-items: center;
     padding: 0 15px;
     font-weight: bold;
-    width: 0; /* Animate this */
+    width: 0;
+    /* Animate this */
     transition: width 1.5s ease-out;
 }
 
-.bar.current { background: var(--danger-color); width: 18%; }
-.bar.projected { background: var(--success-color); width: 100%; box-shadow: 0 0 20px rgba(0, 204, 102, 0.3); }
+.bar.current {
+    background: var(--danger-color);
+    width: 18%;
+}
+
+.bar.projected {
+    background: var(--success-color);
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 204, 102, 0.3);
+}
 
 /* CTA Final */
 .cta-final {
@@ -285,8 +342,16 @@ section {
     padding: 100px 0;
 }
 
-.cta-final h2 { font-size: 2.5rem; margin-bottom: 10px; }
-.cta-final h3 { font-size: 2rem; color: var(--danger-color); margin-bottom: 50px; }
+.cta-final h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.cta-final h3 {
+    font-size: 2rem;
+    color: var(--danger-color);
+    margin-bottom: 50px;
+}
 
 .btn-whatsapp {
     display: inline-block;
@@ -301,16 +366,89 @@ section {
     transition: all 0.3s ease;
 }
 
-.btn-whatsapp:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(37, 211, 102, 0.6); }
+.btn-whatsapp:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(37, 211, 102, 0.6);
+}
 
-.signature { margin-top: 60px; color: var(--text-muted); }
+.signature {
+    margin-top: 60px;
+    color: var(--text-muted);
+}
 
 /* Mobile Responsive */
+/* Mobile Responsive */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 3.5rem; }
-    .hero .subtitle { font-size: 1.2rem; }
-    .comparison-grid, .features-grid, .proof-list { grid-template-columns: 1fr; }
-    .section-title { font-size: 2rem; }
-    .investment-box { padding: 30px; }
-    .price-tag { font-size: 3rem; }
+    .container {
+        padding: 0 20px;
+    }
+
+    .hero h1 {
+        /* Font size handled by clamp in main rule */
+        margin-bottom: 15px;
+    }
+
+    .hero .subtitle {
+        font-size: 1.2rem;
+        padding: 0 10px;
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .features-grid,
+    .proof-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .section-title {
+        /* Font size handled by clamp */
+        margin-bottom: 40px;
+        white-space: normal;
+        /* Allow wrapping */
+    }
+
+    .investment-box {
+        padding: 30px 20px;
+    }
+
+    .price-tag {
+        font-size: 3rem;
+    }
+
+    /* Improve table/stat readability on small screens */
+    .stat {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .stat .value {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.5rem;
+        /* Fallback for very small screens if clamp is too big */
+    }
+
+    .section-title {
+        width: 100%;
+        /* Ensure full width for border */
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    .card,
+    .feature-card {
+        padding: 25px;
+    }
 }
